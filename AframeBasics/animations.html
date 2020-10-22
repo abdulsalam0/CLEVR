@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>Basic primitives</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+
+      <a-assets>
+        <img id="wallTexture" src="../texture/TexturesCom_MetalRollup0145_S.jpg">
+      </a-assets>
+      
+        <a-box
+        src="#wallTexture"
+        width="4"
+        height="4"
+        depthd="4"
+        position="-2 1.5 -9"
+        
+        
+        ></a-box>
+
+        <!-- animation line is used with property to control the animation -->
+        <!-- more info check out this D2 -->
+        <!-- https://aframe.io/docs/1.0.0/components/animation.html#api2_easeinquint -->
+        <a-box
+        color="#795548"
+        width="4"
+        height="4"
+        deptj="4"
+        rotation="0 0 0"
+        scale="1 2.5 1"
+        position="2 1.5 -9"
+        animation="property: rotation; to: 0 360 0; dur: 3000 easing: easeOutQuad; loop: true"
+      ></a-box>
+    </a-scene>
+  </body>
+</html>
