@@ -1,0 +1,86 @@
+<html>
+  <head>
+    <title>on-rails locomotion</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <script src="https://unpkg.com/super-hands@3.0.0/dist/super-hands.min.js"></script>
+  </head>
+  <body>
+    <a-scene background="color: #FFFFFF">
+
+      <a-assets>
+        <img id="footsteps" src="../Img/footsteps.png">
+      </a-assets>
+
+      <!-- adding camera rig -->
+      <a-entity movement-controls="controls: checkpoint"
+                checkpoint-controls="mode: animate"
+      >
+      <!-- camera -->
+      <a-entity camera position="0 1.6 0"
+                look-controls="pointerLockEnable: true"
+      >
+      <a-cursor></a-cursor>
+      </a-entity>
+    </a-entity>
+
+    <!-- ground -->
+    <a-plane color="#DDDDDD" rotation="-90 0 0" shader="flat" scale="10 40 1"></a-plane>
+
+      <!-- box -->
+      <a-box
+      color="#00AA00"
+      width="0.5"
+      depth="3"
+      position="-1.5 0.5 0"
+      ></a-box>
+
+      <!-- box blue-->
+      <a-box
+      color="#00AAFF"
+      position="-3 0.5 -16"
+      checkpoint="offset: 0 0 1"
+      >
+      <!-- offset is used to place you infront of the box -->
+      <!-- Image is a nested element positioed relative to the box -->
+      <a-image src="#footsteps" position="0 2.5 0" checkpoint="offset:-1 -2.5 0"></a-image>
+    </a-box>
+
+      <!-- box orange-->
+      <a-box
+      color="#FFAA00"
+      position="3 0.5 -16"
+      checkpoint="offset: 0 0 1"
+      >
+      <!-- offset is used to place you infront of the box -->
+      <!-- Image is a nested element positioed relative to the box -->
+      <a-image src="#footsteps" position="0 2.5 0" checkpoint="offset:-1 -2.5 0"></a-image>
+    </a-box>
+
+      <!-- box  green -->
+      <a-box
+      color="#00AA00"
+      position="-3 0.5 -8"
+      checkpoint="offset: 0 0 1"
+      >
+      <!-- offset is used to place you infront of the box -->
+      <!-- Image is a nested element positioed relative to the box -->
+      <a-image src="#footsteps" position="0 2.5 0" checkpoint="offset:-1 -2.5 0"></a-image>
+    </a-box>
+
+      <!-- box red -->
+      <a-box
+      color="#FF0000"
+      position="3 0.5 -8"
+      checkpoint="offset: 0 0 1"
+      >
+      <!-- offset is used to place you infront of the box -->
+      <!-- Image is a nested element positioed relative to the box -->
+      <a-image src="#footsteps" position="0 2.5 0" checkpoint="offset:-1 -2.5 0"></a-image>
+    </a-box>
+
+      
+
+    </a-scene>
+  </body>
+</html>
