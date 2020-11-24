@@ -5,42 +5,59 @@
   </head>
   <body>
     <a-scene>
+      <script>
+        AFRAME.registerComponent('spawn',{
+          init: function(){
+            var el = this.el;
+            var sceneEl = document.querySelector('a-scene');
+            var originalBox1 = document.createElement('a-box');
+            originalBox1.setAttribute('material', 'color:blue');
+            originalBox1.setAttribute('height', '3');
+            originalBox1.setAttribute('depthd', '3');
+            originalBox1.setAttribute('width', '3');
+            originalBox1.setAttribute('position', '-9 1.5 -9');
+            
+            var originalBox2 = document.createElement('a-box');
+            originalBox2.setAttribute('material', 'color:green');
+            originalBox2.setAttribute('height', '3');
+            originalBox2.setAttribute('depthd', '3');
+            originalBox2.setAttribute('width', '3');
+            originalBox2.setAttribute('position', '4 1.5 -9');              
+            
+            var originalBox3 = document.createElement('a-box');
+            originalBox3.setAttribute('material', 'color:yellow');
+            originalBox3.setAttribute('height', '3');
+            originalBox3.setAttribute('depthd', '3');
+            originalBox3.setAttribute('width', '3');
+            originalBox3.setAttribute('position', '0 7.5 -9');
+            el.addEventListener('click', function(){
+              sceneEl.appendChild(originalBox1);
+              
+              sceneEl.appendChild(originalBox2);
+              
+              sceneEl.appendChild(originalBox3);
+          });
+          }
+        });
+      </script>
 
       <a-assets>
-        <img id="wallTexture" src="../texture/TexturesCom_MetalRollup0145_S.jpg">
+        <a-asset-item id="table" src="../models/table/wooden_table/scene.gltf"></a-asset-item>
       </a-assets>
       
-        <a-box
-        src="#wallTexture"
-        width="4"
-        height="4"
-        depthd="4"
-        position="-2 1.5 -9"
-        
-        
-        ></a-box>
-
-        <!-- animation line is used with property to control the animation -->
-        <!-- more info check out this D2 -->
-        <!-- https://aframe.io/docs/1.0.0/components/animation.html#api2_easeinquint -->
-        <a-box
-        color="#795548"
-        width="4"
-        height="4"
-        deptj="4"
-        rotation="0 0 0"
-        scale="1 2.5 1"
-        position="2 1.5 -9"
-        animation="property: rotation; to: 0 360 180; dur: 3000;startEvents: mouseenter;";
-        animation__color="property: components.material.material.color; type:color; to: black; dur: 3000;startEvents: mouseenter;";
-      ></a-box>
+      <!-- src="#wallTexture" -->
+        <a-entity
+        gltf-model= "#table"
+        position = "25 -200 -300"
+        scale = ' -1 0.5 -1'
+        rotation = ' 0 -90 0'
+        spawn
+        ></a-entity>
 
       <a-camera position="0 7 5">
         <a-cursor color="#FF0000"
         ></a-cursor>
       </a-camera>
-
-      <a-sky src="../texture/sky.jpg"></a-sky>
 
     </a-scene>
   </body>
