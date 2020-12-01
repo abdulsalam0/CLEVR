@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>Video in a world</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    </head>
+    <body>
+        <a-scene>
+            <a-assets>
+                <video id="rabbit-eating" autoplay loop = "true" src = "../video/rabbit_eating.mp4"></video>
+            </a-assets>
+
+            <a-video 
+            src = "#rabbit-eating" 
+            width = "17"
+            height = "9"
+            position = "0 0 -20">
+            </a-video>
+        </a-scene>
+    </body>
+</html>
